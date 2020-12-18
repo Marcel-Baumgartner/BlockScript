@@ -57,6 +57,11 @@ public class ScriptExecutor
 	
 	private void RunCommand(String command)
 	{
+		if(command.startsWith("#"))
+		{
+			return;
+		}
+		
 		String[] parts = command.split(" ");
 		
 		switch(parts[0])
