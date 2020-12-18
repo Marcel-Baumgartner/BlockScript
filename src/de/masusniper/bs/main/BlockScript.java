@@ -18,6 +18,9 @@ public class BlockScript extends JavaPlugin
 		
 		//Events
 		getServer().getPluginManager().registerEvents(new BookSignedEvent(), this);
+		
+		//Files and Directories
+		
 	}
 	
 	@Override
