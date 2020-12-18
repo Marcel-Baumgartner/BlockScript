@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.masusniper.bs.editor.Editor;
+import de.masusniper.bs.run.ScriptExecutor;
 
 public class BlockScriptCommand implements CommandExecutor
 {
@@ -42,6 +43,12 @@ public class BlockScriptCommand implements CommandExecutor
 				if(args.length > 1)
 				{
 					Editor.DeleteFile((Player) arg0, args[1]);
+				}
+				break;
+			case "run":
+				if(args.length > 1)
+				{
+					ScriptExecutor.RunFile(args[1]);
 				}
 				break;
 			
