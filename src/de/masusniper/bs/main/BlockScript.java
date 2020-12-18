@@ -1,9 +1,8 @@
 package de.masusniper.bs.main;
 
 import java.io.File;
-
+import de.masusniper.bs.oc.RegisterMCCommand;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import de.masusniper.bs.commands.BlockScriptCommand;
 import de.masusniper.bs.editor.BookSignedEvent;
 
@@ -15,9 +14,8 @@ public class BlockScript extends JavaPlugin
 		System.out.println("Enabling BlockScript");
 		
 		//Commands
-		
+		RegisterMCCommand.Execute(this);
 		this.getCommand("bs").setExecutor(new BlockScriptCommand());
-		
 		//Events
 		getServer().getPluginManager().registerEvents(new BookSignedEvent(), this);
 		
