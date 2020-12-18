@@ -31,6 +31,19 @@ public class Editor
 			return;
 		}
 	}
+	public static void DeleteFile(Player player, String filename)
+	{
+		try
+		{
+			File file = new File(Paths.get("blockscripts" , filename).toString());
+			file.delete();
+			player.sendMessage(ChatColor.GREEN + "Sucessfully deleted file " + filename);
+		}
+		catch(Exception ex)
+		{
+			player.sendMessage(ChatColor.RED + "Error at deleting " + filename);
+		}
+	}
 	public static void OpenFile(Player player, String filename)
 	{
 		try

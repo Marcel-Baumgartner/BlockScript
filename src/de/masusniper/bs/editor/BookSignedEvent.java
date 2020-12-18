@@ -33,7 +33,7 @@ public class BookSignedEvent implements Listener
             	
             	fw.close();
             	event.getPlayer().sendMessage(ChatColor.GREEN + "File sucessfully saved");
-            	event.getPlayer().getInventory().remove(event.getPlayer().getInventory().getItemInMainHand());
+            	event.setCancelled(true);
         	}
         	catch(Exception ex)
         	{

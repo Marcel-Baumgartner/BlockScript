@@ -38,6 +38,12 @@ public class BlockScriptCommand implements CommandExecutor
 					Editor.CreateFile((Player) arg0, args[1]);
 				}
 				break;
+			case "delete":
+				if(args.length > 1)
+				{
+					Editor.DeleteFile((Player) arg0, args[1]);
+				}
+				break;
 			
 			default:
 				arg0.sendMessage("Unknown argument " + args[0]);
