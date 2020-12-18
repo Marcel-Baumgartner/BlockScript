@@ -1,5 +1,7 @@
 package de.masusniper.bs.main;
 
+import java.io.File;
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.masusniper.bs.commands.BlockScriptCommand;
@@ -20,7 +22,11 @@ public class BlockScript extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new BookSignedEvent(), this);
 		
 		//Files and Directories
-		
+		File scriptsFolder = new File("blockscripts");
+		if(!scriptsFolder.exists())
+		{
+			scriptsFolder.mkdir();
+		}
 	}
 	
 	@Override
