@@ -1,0 +1,8 @@
+name: BlockScript
+version: 1.0
+main: de.masusniper.bs.main.BlockScript
+commands:
+   bs:
+      description: Block Script Command
+      usage: /bs
+      permission: blockscript.command
