@@ -1,5 +1,6 @@
 package de.masusniper.bs.editor;
 
+import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -13,6 +14,23 @@ import org.bukkit.inventory.meta.BookMeta;
 
 public class Editor 
 {
+	public static void CreateFile(Player player, String filename)
+	{
+		try
+		{
+			File file = new File(Paths.get("blockscripts" , filename).toString());
+			file.createNewFile();
+			
+			player.sendMessage(ChatColor.GREEN + "Created file " + filename);
+			
+			OpenFile(player, filename);
+		}
+		catch(Exception ex)
+		{
+			player.sendMessage(ChatColor.RED + "Error creating file: " + ex.getMessage());
+			return;
+		}
+	}
 	public static void OpenFile(Player player, String filename)
 	{
 		try
@@ -21,7 +39,7 @@ public class Editor
 			
 			List<String> lines = Files.readAllLines(Paths.get("blockscripts" , filename), Charset.defaultCharset());
 			
-			player.sendMessage(ChatColor.AQUA + "Loaded " + lines.size() + " lines.");
+			player.sendMessage(ChatColor.GREEN + "Loaded " + lines.size() + " lines.");
 					
 			ItemStack book = new ItemStack(Material.WRITABLE_BOOK, 1);
 			
@@ -57,7 +75,7 @@ public class Editor
 		}
 		catch(Exception ex)
 		{
-			player.sendMessage(ChatColor.RED + "Error: " + ex.getMessage());
+			player.sendMessage(ChatColor.RED + "Error opening file: " + ex.getMessage());
 			return;
 		}
 	}
